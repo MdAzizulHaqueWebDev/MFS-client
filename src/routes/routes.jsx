@@ -10,6 +10,7 @@ import ConditionalLayout from "./ConditionalLayout";
 import ConditionalRoutes from "./ConditionalRoutes";
 import Cashout from "../pages/userDashboard/Cashout/Cashout";
 import CashIn from "../pages/userDashboard/CashIn/CashIn";
+import UserDashboard from "../pages/userDashboard/UserDashboard";
 const routes = createBrowserRouter([
 	{
 		path: "/",
@@ -57,6 +58,14 @@ const routes = createBrowserRouter([
 				element: (
 					<PrivateRoutes>
 						<CashIn />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: "/dashboard",
+				element: (
+					<PrivateRoutes>
+						<UserDashboard />
 					</PrivateRoutes>
 				),
 			},

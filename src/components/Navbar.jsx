@@ -8,8 +8,8 @@ import useRole from "../hooks/useRole";
 
 const Navbar = () => {
 	const { user } = useAuth();
-	const { role } = useRole();
-	console.log(role);
+	// const { role } = useRole();
+	// console.log(role);
 	const [show, setShow] = useState(false);
 	const navLinks = (
 		<div className="space-x-2">
