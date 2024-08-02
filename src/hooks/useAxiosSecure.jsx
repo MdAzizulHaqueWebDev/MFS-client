@@ -1,11 +1,10 @@
-
 /** @format */
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const axiosInstance = axios.create({
-	baseURL: "http://localhost:3000",
+	baseURL: "https://mfs-server-delta.vercel.app",
 });
 const useAxiosSecure = () => {
 	const navigate = useNavigate();
@@ -18,7 +17,7 @@ const useAxiosSecure = () => {
 			return config;
 		},
 		(error) => {
-			console.log(error,"request error");
+			console.log(error, "request error");
 			// Do something with request error
 			return Promise.reject(error);
 		},
