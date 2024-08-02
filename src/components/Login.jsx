@@ -23,7 +23,7 @@ const Login = () => {
 			navigate("/");
 			// console.log({ existUser, token });
 		} catch (error) {
-			if (error.response.status === 401 || error) {
+			if (error.response?.status === 401 || error) {
 				toast.error(error.response.data?.message || error?.message);
 				setLoading(false);
 			}
@@ -32,10 +32,10 @@ const Login = () => {
 	};
 
 	return (
-		<>
+		<div className="">
 			<div
 				id="login"
-				className="max-w-lg mx-auto h-screen bg-indigo-50 rounded shadow flex flex-col justify-between p-3"
+				className="max-w-lg mx-auto bg-indigo-50 rounded shadow flex flex-col justify-between p-3"
 			>
 				<form className="text-indigo-500" onSubmit={handleSubmit}>
 					<fieldset className="border-4 border-dotted border-indigo-500 p-5">
@@ -85,7 +85,7 @@ const Login = () => {
 					</fieldset>
 				</form>
 			</div>
-		</>
+		</div>
 	);
 };
 

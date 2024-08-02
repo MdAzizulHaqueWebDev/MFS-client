@@ -12,9 +12,10 @@ const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const axios = useAxios();
+	const [refetchUser, setRefetchUser] = useState(false);
 	useEffect(() => {
 		checkAuthState();
-	}, []);
+	}, [refetchUser]);
 
 	const checkAuthState = async () => {
 		try {
@@ -56,7 +57,7 @@ const AuthProvider = ({ children }) => {
 		setUser(null);
 	};
 	return (
-		<AuthContext.Provider value={{ user, loading, login, logout, createUser }}>
+		<AuthContext.Provider value={{ user, loading, login, logout, createUser,setRefetchUser }}>
 			{loading ? <Loader /> : children}
 		</AuthContext.Provider>
 	);

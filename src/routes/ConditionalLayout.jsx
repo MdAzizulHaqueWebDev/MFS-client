@@ -4,7 +4,7 @@ import App from "../App";
 import useAuth from "../hooks/useAuth";
 import Dashboard from "../layout/Dashboard";
 
-const ConditionalRender = ({ children }) => {
+const ConditionalLayout = () => {
 	const { user } = useAuth();
 	if (user) {
 		return <Dashboard />;
@@ -13,4 +13,4 @@ const ConditionalRender = ({ children }) => {
 	}
 };
 
-export default ConditionalRender;
+export default ConditionalLayout;

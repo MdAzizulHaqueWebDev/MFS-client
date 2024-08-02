@@ -2,13 +2,14 @@
 
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Dashboard = () => {
 	return (
-		<div className="flex gap-2">
-			<div className="text-3xl">sidebar</div>
+		<>
+			<Navbar />
 			<Outlet />
-		</div>
+		</>
 	);
 };
 

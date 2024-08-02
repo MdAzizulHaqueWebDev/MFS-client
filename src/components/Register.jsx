@@ -35,7 +35,7 @@ const Register = () => {
 
 	return (
 		<>
-			<div className="h-scree p-4 dark:bg-gray-900">
+			<div className="h-scree p-4 bg-[url(../assets/register-background-image.jpg)] dark:bg-gray-900">
 				<div className="flex justify-center items-center justify-items-center my-auto ">
 					<div className="w-full mx-auto lg:w-2/4 bg-gray-50 bg-opacity-65 backdrop-blur-sm backdrop-saturate-200 border border-gray-300 border-opacity-30   dark:bg-gray-700 p-5 rounded-lg">
 						<h3 className="py-2 text-2xl text-center text-gray-800 dark:text-white">
@@ -132,7 +132,7 @@ const Register = () => {
 								<button
 									disabled={loading}
 									type="submit"
-									className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline"
+									className="w-full px-4 py-2 font-bold text-white bg-rose-400 rounded-full hover:bg-rose-700 dark:bg-rose-700 dark:text-white dark:hover:bg-rose-900 focus:outline-none focus:shadow-outline"
 								>
 									{loading ? (
 										<div className="flex justify-center">

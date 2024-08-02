@@ -6,8 +6,8 @@ import sendMoney from "../assets/send-money-icon.jpg";
 import banner from "../assets/services-banner.jpg";
 const Services = () => {
 	return (
-		<>
-			<section className="container mx-auto px-4 py-4 ">
+		<div className="bg-slate-100">
+			<section className="container mx-auto px-4 py-4">
 				<div className="flex flex-col md:flex-row items-center justify-between">
 					<div className="w-full md:w-1/2 mb-8 md:mb-0">
 						<h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
@@ -26,7 +26,7 @@ const Services = () => {
 					</div>
 
 					<div className="w-full md:w-1/2">
-						<img src={banner} alt="" />
+						<img className="backdrop-filter rounded" src={banner} alt="" />
 					</div>
 				</div>
 			</section>
@@ -89,7 +89,7 @@ const Services = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

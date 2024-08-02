@@ -1,42 +1,36 @@
 /** @format */
+
+// /** @format */
 import { BiDetail, BiLockAlt, BiMoney, BiUser } from "react-icons/bi";
-import "./sendmoney.css";
 import { AiOutlineLoading } from "react-icons/ai";
-import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
-import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useState } from "react";
-import TransactionHistory from "../components/TransactionHistory";
-const SendMoney = () => {
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+const CashIn = () => {
 	const [loading, setLoading] = useState(false);
 	const { user, setRefetchUser, refetchUser } = useAuth();
 	const axiosSecure = useAxiosSecure();
-	const { balance } = user || {};
 	const amountCheckerRegex = /^\d+$/;
-	const handleSendMoneyForm = async (event) => {
+	const handleCashOutForm = async (event) => {
 		event.preventDefault();
 		const form = event.target;
 		const amount = parseInt(form.amount.value);
 		if (!amountCheckerRegex.test(amount)) return toast.error("Invalid Amount");
-		const receiverPhoneNumber = form.receiver.value;
+		const agentPhoneNumber = form.receiver.value;
 		const reference = form.reference.value;
 		const pin = form.pin.value;
-		if (amount > balance || balance === 0) {
-			return toast.error("Your Balance Is Low");
-		} else if (balance < 50) {
-			return toast.error("Can't Send less than 50 money");
-		}
 
-		const sendMoneyTransaction = {
+		const cashInTransaction = {
 			amount,
 			pin,
-			payStatus: "sendMoney",
-			receiverPhoneNumber,
+			payStatus: "cashIn",
+			agentPhoneNumber,
 			reference,
-			senderDetail: user,
+			 user,
 		};
 		setLoading(true);
-		const data = await axiosSecure.post("/send-money", sendMoneyTransaction);
+		const data = await axiosSecure.post("/cash-in", cashInTransaction);
 		if (data?.code) {
 			const errorMessage = data.response.data.message;
 			toast.error(errorMessage);
@@ -44,25 +38,24 @@ const SendMoney = () => {
 			return;
 		}
 		if (data.status === 200) {
-			setRefetchUser(!refetchUser);
 			setLoading(false);
-			toast.success("Sent Money Success");
+			toast.success("Cash In Requst Success");
 			form.reset();
 			// window.location.replace("/")
 		}
-		console.log(data);
+        console.log(data);
 	};
 	return (
 		<div className="bg-slate-100 text-gray-700 h-screen">
 			<h1 className="text-4xl font-bold text-center font-mono mb-2 shadow  pt-4">
-				Send Money
+				Cash In
 			</h1>
 			<form
-				onSubmit={handleSendMoneyForm}
+				onSubmit={handleCashOutForm}
 				className="border-t-4 border-b-2 drop-shadow border-gray-700 shadow-neutral-800 bg-slate-600 bg-opacity-20 bg-transparent rounded-b-sm md:rounded-t-[120px] rounded-3xl py-5"
 			>
 				<div className="max-w-xs mx-auto text-center space-y-2">
-					<h3 className="font-bold text-xl ">Confirm Transfer</h3>
+					<h3 className="font-bold text-xl ">Confirm Cash In</h3>
 					<div className="relative text-gray-600">
 						<span className="absolute start-0 bottom-3 dark:00">
 							<BiMoney />
@@ -87,7 +80,7 @@ const SendMoney = () => {
 							id="floating-phone-number"
 							className="block py-2.5 ps-6 pe-0 w-full text-lg bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
 							pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-							placeholder="Enter Receiver Number"
+							placeholder="Enter Agent Number"
 						/>
 					</div>
 					Phone Number
@@ -133,17 +126,17 @@ const SendMoney = () => {
 								<AiOutlineLoading className="animate-spin" />
 							</span>
 						) : (
-							"Send"
+							"Cash In"
 						)}
 					</button>
 				</div>
 			</form>
 			<>
 				<h2 className="text-xl font-bold">Recent Transaction</h2>
-				<TransactionHistory />
+				{/* <TransactionHistory /> */}
 			</>
 		</div>
 	);
 };
 
-export default SendMoney;
+export default CashIn;

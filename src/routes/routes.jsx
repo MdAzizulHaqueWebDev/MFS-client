@@ -6,40 +6,61 @@ import Login from "../components/Login";
 import PrivateRoutes from "./PrivateRoutes";
 import Services from "../pages/Services";
 import SendMoney from "../pages/SendMoney";
-import ConditionalRender from "./ConditionalRender";
+import ConditionalLayout from "./ConditionalLayout";
 import ConditionalRoutes from "./ConditionalRoutes";
+import Cashout from "../pages/userDashboard/Cashout/Cashout";
+import CashIn from "../pages/userDashboard/CashIn/CashIn";
 const routes = createBrowserRouter([
 	{
 		path: "/",
-		element: <ConditionalRender />,
-		children: [...(<ConditionalRoutes />)],
-		
-		//  [
-		// 	{
-		// 		index: true,
-		// 		element: <Home />,
-		// 	},
-		// 	{
-		// 		path: "/login",
-		// 		element: <Login />,
-		// 	},
-		// 	{
-		// 		path: "/services",
-		// 		element: (
-		// 			<PrivateRoutes>
-		// 				<Services />
-		// 			</PrivateRoutes>
-		// 		),
-		// 	},
-		// 	{
-		// 		path: "/send-money",
-		// 		element: (
-		// 			<PrivateRoutes>
-		// 				<SendMoney />
-		// 			</PrivateRoutes>
-		// 		),
-		// 	},
-		// ],
+		element: <ConditionalLayout />,
+		errorElement: <h1 className="text-9xl font-bold">Sorry , page not found</h1>,
+		children: [
+			{
+				index: true,
+				element: (
+					<ConditionalRoutes>
+						<Services />
+					</ConditionalRoutes>
+				),
+			},
+			{
+				path: "/login",
+				element: <Login />,
+			},
+			{
+				path: "/services",
+				element: (
+					<PrivateRoutes>
+						<Services />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: "/send-money",
+				element: (
+					<PrivateRoutes>
+						<SendMoney />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: "/cash-out",
+				element: (
+					<PrivateRoutes>
+						<Cashout />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: "/cash-in",
+				element: (
+					<PrivateRoutes>
+						<CashIn />
+					</PrivateRoutes>
+				),
+			},
+		],
 	},
 ]);
 export default routes;
