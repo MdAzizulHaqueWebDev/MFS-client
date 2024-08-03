@@ -11,11 +11,14 @@ import ConditionalRoutes from "./ConditionalRoutes";
 import Cashout from "../pages/userDashboard/Cashout/Cashout";
 import CashIn from "../pages/userDashboard/CashIn/CashIn";
 import UserDashboard from "../pages/userDashboard/UserDashboard";
+import DashboardLayout from "../layout/DashboardLayout";
 const routes = createBrowserRouter([
 	{
 		path: "/",
 		element: <ConditionalLayout />,
-		errorElement: <h1 className="text-9xl font-bold">Sorry , page not found</h1>,
+		errorElement: (
+			<h1 className="text-9xl font-bold">Sorry , page not found</h1>
+		),
 		children: [
 			{
 				index: true,
@@ -61,13 +64,19 @@ const routes = createBrowserRouter([
 					</PrivateRoutes>
 				),
 			},
+		],
+	},
+	{
+		path: "/dashboard",
+		element: (
+			<PrivateRoutes>
+				<DashboardLayout />
+			</PrivateRoutes>
+		),
+		children: [
 			{
-				path: "/dashboard",
-				element: (
-					<PrivateRoutes>
-						<UserDashboard />
-					</PrivateRoutes>
-				),
+				index: true,
+				element: <UserDashboard />,
 			},
 		],
 	},

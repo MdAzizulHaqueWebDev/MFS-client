@@ -35,9 +35,9 @@ const Register = () => {
 
 	return (
 		<>
-			<div className="h-scree p-4 bg-[url(../assets/register-background-image.jpg)] dark:bg-gray-900">
-				<div className="flex justify-center items-center justify-items-center my-auto ">
-					<div className="w-full mx-auto lg:w-2/4 bg-gray-50 bg-opacity-65 backdrop-blur-sm backdrop-saturate-200 border border-gray-300 border-opacity-30   dark:bg-gray-700 p-5 rounded-lg">
+			<div className="h-screen p-4 my-auto dark:bg-gray-900">
+				<div className="flex justify-center items-center justify-items-center">
+					<div className="w-full mx-auto lg:w-2/4 bg-gray-300 bg-opacity-65 backdrop-blur-sm backdrop-saturate-200 border border-gray-300 border-opacity-30   dark:bg-gray-700 p-5 rounded-lg">
 						<h3 className="py-2 text-2xl text-center text-gray-800 dark:text-white">
 							Create an Account!
 						</h3>
@@ -101,33 +101,6 @@ const Register = () => {
 									/>
 								</div>
 							</div>
-							{/* <div className="mb-4 lg:ml-5 md:ml-[90px]">
-								<div className="p-1 bg-white">
-									<div className="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
-										<div className="md:flex">
-											<div className="w-full p-3">
-												<div className="relative border-dotted h-12 rounded-lg  border-2 border-blue-700 bg-gray-100 flex justify-center items-center">
-													<div className="absolute">
-														<div className="flex flex-col items-center">
-															<MdFolder />
-															<p className="block text-gray-400 font-normal">
-																Attach you image here
-															</p>
-														</div>
-													</div>
-
-													<input
-														required
-														type="file"
-														className="h-full w-full opacity-0"
-														name="image"
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div> */}
 							<div className="mb-6 text-center">
 								<button
 									disabled={loading}

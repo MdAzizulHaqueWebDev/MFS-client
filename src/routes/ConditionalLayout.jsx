@@ -2,12 +2,12 @@
 
 import App from "../App";
 import useAuth from "../hooks/useAuth";
-import Dashboard from "../layout/Dashboard";
+import MainLayout from "../layout/MainLayout";
 
 const ConditionalLayout = () => {
 	const { user } = useAuth();
 	if (user) {
-		return <Dashboard />;
+		return <MainLayout />;
 	} else {
 		return <App />;
 	}

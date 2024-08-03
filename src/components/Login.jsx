@@ -32,7 +32,7 @@ const Login = () => {
 	};
 
 	return (
-		<div className="">
+		<div className="bg-fixed bg-[url(https://static.vecteezy.com/system/resources/previews/037/895/297/non_2x/male-working-with-profile-on-laptop-online-banking-payment-for-purchases-and-services-vector.jpg)] bg-transparent bg-cover bg-no-repeat mt-4">
 			<div
 				id="login"
 				className="max-w-lg mx-auto bg-indigo-50 rounded shadow flex flex-col justify-between p-3"
@@ -44,7 +44,7 @@ const Login = () => {
 							className="text-xs font-bold after:content-['*'] after:text-red-400"
 							htmlFor="phone"
 						>
-							Phone{" "}
+							Phone
 						</label>
 						<input
 							className="w-full p-2 mb-2 mt-1 outline-none ring-none focus:ring-2 focus:ring-indigo-500"
@@ -64,10 +64,7 @@ const Login = () => {
 							required
 							id="pin"
 						/>
-						<a
-							href=""
-							className="block hover:underline  text-xs text-indigo-500 text-right mb-4"
-						>
+						<a className="block hover:underline  text-xs text-indigo-500 text-right mb-4">
 							Forgot Pin?
 						</a>
 						<button

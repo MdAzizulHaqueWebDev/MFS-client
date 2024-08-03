@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const axiosInstance = axios.create({
-	baseURL: "https://mfs-server-delta.vercel.app",
+	baseURL: "http://localhost:3000",
 });
 const useAxiosSecure = () => {
 	const navigate = useNavigate();

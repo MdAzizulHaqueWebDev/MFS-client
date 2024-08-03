@@ -54,15 +54,15 @@ const Home = () => {
 								className="relative z-40 "
 							>
 								<div className="fixed  inset-0 flex w-screen items-center justify-center p-4">
-									<DialogPanel className="w-full h-svh border-orange-200 border bg-white md:p-12">
+									<DialogPanel className="w-full h-svh border-orange-200 border bg-[url(https://static.vecteezy.com/system/resources/previews/037/895/297/non_2x/male-working-with-profile-on-laptop-online-banking-payment-for-purchases-and-services-vector.jpg)] bg-no-repeat bg-transparent bg-opacity-80 bg-cover bg-fixed md:p-12">
 										<Register />
 									</DialogPanel>
-								<button
-									className="text-4xl absolute hover:shadow-rose-400 transition-all top-10 z-50 right-8 rounded scale-95 hover:scale-105 shadow"
-									onClick={() => setIsOpen(false)}
-								>
-									<BiX />
-								</button>
+									<button
+										className="text-4xl absolute hover:shadow-rose-400 transition-all top-10 z-50 right-8 rounded scale-95 hover:scale-105 shadow"
+										onClick={() => setIsOpen(false)}
+									>
+										<BiX />
+									</button>
 								</div>
 							</Dialog>
 						</>

@@ -5,16 +5,17 @@ import useAuth from "./useAuth";
 import useAxios from "./useAxios";
 
 const useRole = () => {
-	const { user } = useAuth();
+	const { user, loading } = useAuth();
 	const axios = useAxios();
+	if (loading) return {};
 	const { data, isPending } = useQuery({
 		queryKey: ["user-role"],
 		queryFn: async () => {
-			const { data } = await axios.get(`/role/${user.phone}`);
+			const { data } = await axios.get(`/role/${user?.phone}`);
 			return data;
 		},
 	});
-	return { role: data.role, isPending };
+	return { role: data, isPending };
 };
 
 export default useRole;

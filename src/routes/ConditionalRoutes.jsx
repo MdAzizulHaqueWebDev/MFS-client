@@ -5,7 +5,6 @@ import Home from "../pages/Home";
 
 const ConditionalRoutes = ({ children }) => {
 	const { user } = useAuth();
-
 	if (user) {
 		return children;
 	} else {

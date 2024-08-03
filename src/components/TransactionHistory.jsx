@@ -20,16 +20,16 @@ const TransactionHistory = () => {
 			<section className="flex items-center gap-2 flex-wrap">
 				{transactions.length ? (
 					transactions.slice(0, 10).map((transaction) => (
-						<div key={transaction._id} class="w-fit px-6 py-6  text-center bg-gray-100 rounded-lg lg:mt-0 xl:px-10">
-							<div class="space-y-4 xl:space-y-6">
+						<div key={transaction._id} className="w-fit px-6 py-6  text-center bg-gray-100 rounded-lg lg:mt-0 xl:px-10">
+							<div className="space-y-4 xl:space-y-6">
 								<img
-									class="mx-auto rounded-full w-8"
+									className="mx-auto rounded-full w-8"
 									src="https://thispersondoesnotexist.com/images"
 									alt="author avatar"
 								/>
-								<div class="space-y-2">
-									<div class="flex justify-center items-center flex-col space-y-3 text-lg font-medium leading-6">
-										<h3 class="text-black">{transaction.receiverName}</h3>
+								<div className="space-y-2">
+									<div className="flex justify-center items-center flex-col space-y-3 text-lg font-medium leading-6">
+										<h3 className="text-black">{transaction.receiverName}</h3>
 									</div>
 								</div>
 							</div>
